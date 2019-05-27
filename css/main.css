@@ -1,0 +1,17 @@
+body {
+    font-family: 'Underdog', cursive;
+}
+a { 
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+   } 
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.scroll-table {
+    position: relative;
+    height: 200px;
+    overflow: scroll;
+    display: block;
+}
