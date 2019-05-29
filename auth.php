@@ -3,11 +3,7 @@ session_start();
 $auth = $_SESSION["auth"];
 require_once "db/db.php";
 ?>
- <?php
-        session_start();        
-        if (isset($_POST['reg'])) echo '<script language="JavaScript"> 
-                                            window.location.href = "reg.php"
-                                        </script>';
+ <?php      
         if (isset($_POST['submit'])) {
             if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} }
                 if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
@@ -57,34 +53,7 @@ require_once "db/db.php";
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="index.php">ШКАФ</a>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">                
-                <?php 
-                if ($auth==1) {
-                    echo '<form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Поиск..." aria-label="Поиск...">
-                        <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Найти</button>
-                    </form>';
-                }
-                else 
-                echo '<form class="form-inline my-2 my-lg-0" method="POST">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="auth.php">Войти</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reg.php">Зарегестрироваться</a>
-                        </li>
-                        </ul>
-                    </form>';
-                ?>
-            </div>
-        </nav>
+       
     <div class="container">
     <center>
         <div class="card" style="width: 20rem; margin-top: 5%">
