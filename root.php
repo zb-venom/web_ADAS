@@ -14,6 +14,10 @@ if ($class != "mk" && $class != "kc" && $class != "or") $class = "mk";
 if (!$auth) echo '<script language="JavaScript"> 
                     window.location.href = "auth.php"
                   </script>';
+
+if(isset($_GET['reg'])) echo '<script language="JavaScript"> 
+                    window.location.href = "reg.php"
+                    </script>';
 require_once "db/db.php";
 if (isset($_GET['delete'])){
             $id = $_GET['id'];
@@ -100,26 +104,14 @@ $result = mysqli_query($link, $sql) or die("Ошибка " . mysqli_error($link)
                     <a class="nav-link" href="history.php">Журнал</a>
                 </li>
                 </ul>
-                <?php 
-                if ($auth==1) {  
-                    if ($root) echo '<form class="form-inline my-2 my-lg-0 method="POST"><button class="btn btn-outline-primary my-2 my-sm-0" name="root" type="submit">Управление</button>&#8194;</form>';
-                    echo '<form class="form-inline my-2 my-lg-0 method="POST"><input class="form-control mr-sm-2" type="search" name="input" placeholder="Поиск..." aria-label="Поиск...">
-                        <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Найти</button>&#8194;
-                        <button class="btn btn-outline-danger my-2 my-sm-0" name="exit" type="submit">Выход</button>
-                    </form>';
-                }
-                else 
-                echo '<form class="form-inline my-2 my-lg-0" method="POST">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="auth.php">Войти</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="reg.php">Зарегестрироваться</a>
-                        </li>
-                        </ul>
-                    </form>';
-                ?>
+                <?php  
+                if ($root) echo '
+                <form class="form-inline my-2 my-lg-0 method=POST"><button class="btn btn-outline-primary my-2 my-sm-0" name="reg" type="submit">Новый пользователь</button>&#8194;</form>
+                <form class="form-inline my-2 my-lg-0 method=POST"><button class="btn btn-outline-primary my-2 my-sm-0" name="root" type="submit">Управление</button>&#8194;</form>'; ?>
+                <form class="form-inline my-2 my-lg-0 method=POST"><input class="form-control mr-sm-2" type="search" name="input" placeholder="Поиск..." aria-label="Поиск...">
+                    <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Найти</button>&#8194;
+                    <button class="btn btn-outline-danger my-2 my-sm-0" name="exit" type="submit">Выход</button>
+                </form>
             </div>
         </nav><br>
         <div class="container"> 
